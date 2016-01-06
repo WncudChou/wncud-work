@@ -10,7 +10,7 @@ import java.io.RandomAccessFile;
 public class RandomFile {
     public static void main(String[] args) {
         try {
-            RandomAccessFile accessFile = new RandomAccessFile("G:\\log\\filelog-test.log", "r");
+            RandomAccessFile accessFile = new RandomAccessFile("E:\\logs\\server.log", "r");
             accessFile.seek(0);
             String content;
             content = new String(accessFile.readLine().getBytes("8859_1"), "utf-8");

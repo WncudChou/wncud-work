@@ -1,0 +1,9 @@
+<html>
+<body>
+<h3>Hi ${name}, welcome to the Chipping Sodbury On-the-Hill message boards!</h3>
+
+<div>
+    Your email address is ${age}</a>.
+</div>
+</body>
+</html>
