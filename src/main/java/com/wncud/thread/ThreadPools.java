@@ -146,11 +146,11 @@ public class ThreadPools {
     public static void main(String[] args) {
         ThreadPools threadPool = ThreadPools.getThreadPool(6);
         ThreadTask[] threadTasks ={ new ThreadTask(),
-                    new ThreadTask(),
                 new ThreadTask(),
-                    new ThreadTask(),
-                    new ThreadTask(),
-                    new ThreadTask()
+                new ThreadTask(),
+                new ThreadTask(),
+                new ThreadTask(),
+                new ThreadTask()
         };
         threadPool.execute(threadTasks);
         System.out.println(threadPool);

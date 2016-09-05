@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean name="falconReporter" class="com.wncud.metrics.FalconReporter">
+        <constructor-arg ref="metricRegistry" index="0" />
+        <property name="falconTransfer" ref="falconTransfer" />
+    </bean>
+    <bean name="falconTransfer" class="com.dmall.falcon.api.impl.FalconTransfer">
+        <property name="config">
+            <bean class="com.dmall.falcon.api.FalconConfig">
+                <property name="transferUrl" value="http://192.168.8.236:6060/api/push" />
+                <property name="transferTimeout" value="2000" />
+            </bean>
+        </property>
+    </bean>
+
+    <bean name="metricRegistry" class="com.codahale.metrics.MetricRegistry" />
+
+</beans>

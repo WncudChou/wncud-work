@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="outPattern"
+              value="[%-5p] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%C] - %m%n" />
+    <!-- 文件历史数 -->
+    <property name="maxHistory" value="7" />
+    <property name="log.path" value="E:/log/" />
+    <!-- logback -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender" level="ERROR">
+        <encoder>
+            <pattern>${outPattern}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/file_new.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/file_new.log.%d{yyyy-MM-dd-HH-mm}</fileNamePattern>
+            <maxHistory>${maxHistory}</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${outPattern}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <root level="INFO">    <!-- 根据实际情况修改日志级别，一般线上是INFO以上 -->
+        <!-- 根据配置文件，如果devMode是false则打印console日志 -->
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
